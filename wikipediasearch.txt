@@ -1,1 +1,58 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+public class WLTS {
+
+             public static void main(String[] args) throws Exception {
+                          WebDriver driver = new FirefoxDriver();
+                          driver.manage().window().maximize();
+                          driver.get(“http://wikipedia.org/”);
+                          Thread.sleep(5000);
+                          driver.findElement(By.id(“searchinput”)).sendKeys(“Taylor Swift”);
+    
+       if(driver.findElement(By.xpath("/wiki/Taylor_Swift_(%C3%A1lbum)"))!= null){
+            System.out.println("Taylor Swift album is Present");
+            }else{
+            System.out.println("Tylor Swift album is Absent");
+            }
+       
+      
+       if(driver.findElement(By.xpath("/wiki/Fearless_(%C3%A1lbum_de_Taylor_Swift)"))!= null){
+            System.out.println("Fearless album is Present");
+            }else{
+            System.out.println("Fearlessalbum is Absent");
+            }
+      
+       if(driver.findElement(By.xpath("/wiki/Speak_Now"))!= null){
+            System.out.println("Speak now album is Present");
+            }else{
+            System.out.println("Speak Now album is Absent");
+            }
+          
+           if(driver.findElement(By.xpath("/wiki/Red_(%C3%A1lbum_de_Taylor_Swift)"))!= null){
+            System.out.println("Red album is Present");
+            }else{
+            System.out.println("Red album is Absent");
+            }
+     
+         if(driver.findElement(By.xpath("/wiki/1989_(%C3%A1lbum)"))!= null){
+            System.out.println("The 1989 album is Present");
+            }else{
+            System.out.println("The 1989 album is Absent");
+            }
+            
+             if(driver.findElement(By.xpath("/wiki/Reputation"))!= null){
+            System.out.println("Reputation  album  is Present");
+            }else{
+            System.out.println("Reputation Stadium album is Absent");
+            }
+            
+            driver.findElement(By.xpath("/wiki/Reputation"));   
+            Actions action = new Actions(driver);
+            action.moveToElement(element).build().perform();
+            WebElement toolTipElement = driver.findElement(By.id("mwe-popups-svg"));
+            String toolTipTxt = toolTipElement.getText();
+            System.out.println(toolTipTxt);          
+}
